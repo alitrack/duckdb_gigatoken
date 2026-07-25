@@ -1,0 +1,5 @@
+target/
+*.duckdb_extension
+*.so
+*.dylib
+*.dll

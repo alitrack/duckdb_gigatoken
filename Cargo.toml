@@ -1,0 +1,21 @@
+[package]
+name = "duckdb_gigatoken"
+version = "0.1.0"
+edition = "2021"
+description = "DuckDB extension for fast BPE tokenization using gigatoken — encode/decode text at GB/s"
+license = "MIT"
+repository = "https://github.com/alitrack/duckdb_gigatoken"
+
+[lib]
+name = "gigatoken"
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+strip = true
+
+[dependencies]
+duckdb = { version = "~1.10504.0", features = ["loadable-extension", "vscalar"] }
+gigatoken_rs = { package = "gigatoken", git = "https://github.com/marcelroed/gigatoken" }
+arrow = "58"
+eyre = "0.6"
